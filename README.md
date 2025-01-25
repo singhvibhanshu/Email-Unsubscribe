@@ -95,9 +95,6 @@ https://example.com/unsubscribe3
 - **Do not share your `.env` file or credentials publicly.**
 - For production use, consider using OAuth or app-specific passwords instead of plain text credentials.
 
-## License
-This project is licensed under the MIT License. See the `LICENSE` file for details.
-
 ## Contributing
 Contributions are welcome! If you'd like to improve the script, please fork the repository and submit a pull request.
 
