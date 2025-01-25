@@ -2,6 +2,7 @@ from dotenv import load_dotenv
 import imaplib
 import email
 import os
+
 load_dotenv()
 
 username = os.getenv("EMAIL")
@@ -13,9 +14,9 @@ def connect_to_mail():
     mail.select("inbox")
     return mail
 
-def search_for_mail():
+def search_for_email():
     mail = connect_to_mail()
-    _, search_data = mail.search(None, '(BODY, "unsubscribe")')
+    _, search_data = mail.search(None, 'TEXT "unsubscribe"')
     data = search_data[0].split()
 
     for num in data:
@@ -31,9 +32,9 @@ def search_for_mail():
             content_type = msg.get_content_type()
             content = msg.get_payload(decode=True).decode()
 
-            if content_type == "tect/html":
+            if content_type == "text/html":
                 print(content)
 
     mail.logout()
 
-search_for_mail()
+search_for_email()
